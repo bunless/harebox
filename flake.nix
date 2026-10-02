@@ -31,6 +31,8 @@
               just
             ];
 
+            HAREPATH = "${pkgs.hare}/src/hare/stdlib";
+
             shellHook = ''
               echo "entering bunless Hare development environment"
               hare version

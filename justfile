@@ -5,7 +5,8 @@ default: build
 
 build:
 	mkdir -p result
-	hare build -o {{bin}} {{srcdir}}
+	hare build -R -o {{bin}} {{srcdir}}
+	strip {{bin}}
 
 run *args: build
 	./{{bin}} {{args}}
