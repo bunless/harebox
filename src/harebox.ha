@@ -11,11 +11,11 @@ fn run_applet(cmd: []str) (errors::invalid | void) = {
 	};
 
 	switch(cmd[0]) {
-	case "cat" =>
+	case "sort" =>
 		if (len(cmd) < 2) {
 			return errors::invalid;
 		};
-		cat(cmd[1]);
+		sort(cmd[1]);
 	case => fmt::printfln("harebox: unknown applet: {}", cmd[0])!; 
 	};
 };
