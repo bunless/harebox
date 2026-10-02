@@ -11,12 +11,12 @@ fn run_applet(cmd: []str) (errors::invalid | void) = {
 	};
 
 	switch(cmd[0]) {
-	case "cat" =>
+	case "base64" =>
 		if (len(cmd) < 2) {
 			return errors::invalid;
 		};
-		cat(cmd[1]);
-	case => fmt::printfln("harebox: unknown applet: {}", cmd[0])!; 
+		base64(cmd[1]);
+	case => fmt::printfln("minicore: unknown applet: {}", cmd[0])!; 
 	};
 };
 
@@ -26,6 +26,6 @@ export fn main() void = {
 	case void =>
 		yield;
 	case let err: errors::invalid =>
-		fmt::println("usage: harebox <applet> [args...]")!;
+		fmt::println("usage: minicore <applet> [args...]")!;
 	};
 };
