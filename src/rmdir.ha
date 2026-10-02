@@ -3,12 +3,12 @@ use os;
 use fs;
 use io;
 
-export fn rm(file: str) void = {
+export fn rmdir(file: str) void = {
 	match (os::stat(file)) {
 	case let fst: fs::filestat =>
-		if (fs::isfile(fst.mode)) {
+		if (fs::isdir(fst.mode)) {
 			// fmt::println("file")!;	
-			os::remove(file)!;
+			os::rmdir(file)!;
 		};
 	};
 };

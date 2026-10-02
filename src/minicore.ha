@@ -11,11 +11,11 @@ fn run_applet(cmd: []str) (errors::invalid | void) = {
 	};
 
 	switch(cmd[0]) {
-	case "rm" =>
+	case "rmdir" =>
 		if (len(cmd) < 2) {
 			return errors::invalid;
 		};
-		rm(cmd[1]);
+		rmdir(cmd[1]);
 	case => fmt::printfln("minicore: unknown applet: {}", cmd[0])!; 
 	};
 };
