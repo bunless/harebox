@@ -1,4 +1,4 @@
 # NAME IS WORK IN PROGRESS
 
-# harebox
+# minicore
 Busybox rewritten in harelang
