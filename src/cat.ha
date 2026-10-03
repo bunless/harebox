@@ -15,13 +15,11 @@ export fn cat(files: []str) void = {
 			yield f;
 		case let e: fs::error =>
 			fmt::printfln("cat: {}: {}", file, fs::strerror(e))!;
-			return;
+			continue;
 		case nomem =>
 			fmt::printfln("cat: {}: out of memory", file)!;
-			return;
+			continue;
 		};
-		defer io::close(f)!;
-
 
 		for (true) {
 			let n = match (io::read(f, buf)) {
@@ -31,10 +29,12 @@ export fn cat(files: []str) void = {
 				break;
 			case let e: io::error =>
 				fmt::printfln("cat: {}: {}", file, io::strerror(e))!;
-				return;
+				break;
 			};
 
 			io::writeall(os::stdout, buf[..n])!;
 		};
+
+		io::close(f)!;
 	};
 };
