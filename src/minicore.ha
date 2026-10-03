@@ -15,7 +15,7 @@ fn run_applet(cmd: []str) (errors::invalid | void) = {
 		if (len(cmd) < 2) {
 			return errors::invalid;
 		};
-		cat(cmd[1]);
+		cat(cmd[1..]);
 	case => fmt::printfln("harebox: unknown applet: {}", cmd[0])!; 
 	};
 };
